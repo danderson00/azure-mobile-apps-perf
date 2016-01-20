@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LoadTest Name="CRUD" Description="" Owner="" storage="c:\projects\azure-mobile-apps-perf\crud.loadtest" Priority="2147483647" Enabled="true" CssProjectStructure="" CssIteration="" DeploymentItemsEditable="" WorkItemIds="" TraceLevel="None" CurrentRunConfig="Node.js" Id="f4336a4e-7590-4243-9a87-8f56bebadb7f" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+<LoadTest Name="CRUD" Description="" Owner="" storage="d:\azure-mobile-apps-perf\crud.loadtest" Priority="2147483647" Enabled="true" CssProjectStructure="" CssIteration="" DeploymentItemsEditable="" WorkItemIds="" TraceLevel="None" CurrentRunConfig=".NET" Id="f4336a4e-7590-4243-9a87-8f56bebadb7f" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Scenarios>
     <Scenario Name="Scenario1" DelayBetweenIterations="0" PercentNewUsers="0" IPSwitching="false" TestMixType="PercentageOfTestsStarted" ApplyDistributionToPacingDelay="true" MaxTestIterations="0" DisableDuringWarmup="false" DelayStartTime="0" AllowedAgents="">
       <ThinkProfile Value="0" Pattern="Off" />
@@ -421,6 +421,27 @@
     </CounterSet>
   </CounterSets>
   <RunConfigurations>
+    <RunConfiguration Name="V1" Description="Basic CRUD Test" ResultsStoreType="Database" TimingDetailsStorage="None" SaveTestLogsOnError="true" SaveTestLogsFrequency="0" MaxErrorDetails="200" MaxErrorsPerType="1000" MaxThresholdViolations="1000" MaxRequestUrlsReported="1000" UseTestIterations="false" RunDuration="200" WarmupTime="0" CoolDownTime="0" TestIterations="100" WebTestConnectionModel="ConnectionPerUser" WebTestConnectionPoolSize="50" SampleRate="5" ValidationLevel="High" SqlTracingConnectString="" SqlTracingConnectStringDisplayValue="" SqlTracingDirectory="" SqlTracingEnabled="false" SqlTracingFileCount="2" SqlTracingRolloverEnabled="true" SqlTracingMinimumDuration="500" RunUnitTestsInAppDomain="true" CoreCount="1" UseMultipleIPs="false" TestAgentConfiguration="Default" AgentDiagnosticsLevel="Warning">
+      <CounterSetMappings>
+        <CounterSetMapping ComputerName="[CONTROLLER MACHINE]">
+          <CounterSetReferences>
+            <CounterSetReference CounterSetName="LoadTest" />
+            <CounterSetReference CounterSetName="Controller" />
+          </CounterSetReferences>
+        </CounterSetMapping>
+        <CounterSetMapping ComputerName="[AGENT MACHINES]">
+          <CounterSetReferences>
+            <CounterSetReference CounterSetName="Agent" />
+          </CounterSetReferences>
+        </CounterSetMapping>
+      </CounterSetMappings>
+      <LoadGeneratorLocations>
+        <GeoLocation Location="West US" Percentage="100" />
+      </LoadGeneratorLocations>
+      <ContextParameters>
+        <ContextParameter Name="URL" Value="https://v1-perf.azure-mobile.net/" />
+      </ContextParameters>
+    </RunConfiguration>
     <RunConfiguration Name="Node.js" Description="Basic CRUD Test" ResultsStoreType="Database" TimingDetailsStorage="None" SaveTestLogsOnError="true" SaveTestLogsFrequency="0" MaxErrorDetails="200" MaxErrorsPerType="1000" MaxThresholdViolations="1000" MaxRequestUrlsReported="1000" UseTestIterations="false" RunDuration="200" WarmupTime="0" CoolDownTime="0" TestIterations="100" WebTestConnectionModel="ConnectionPerUser" WebTestConnectionPoolSize="50" SampleRate="5" ValidationLevel="High" SqlTracingConnectString="" SqlTracingConnectStringDisplayValue="" SqlTracingDirectory="" SqlTracingEnabled="false" SqlTracingFileCount="2" SqlTracingRolloverEnabled="true" SqlTracingMinimumDuration="500" RunUnitTestsInAppDomain="true" CoreCount="1" UseMultipleIPs="true" TestAgentConfiguration="Default" AgentDiagnosticsLevel="Warning">
       <CounterSetMappings>
         <CounterSetMapping ComputerName="[CONTROLLER MACHINE]">

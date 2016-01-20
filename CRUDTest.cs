@@ -28,7 +28,8 @@ namespace azure_mobile_apps_node_perf
 
         private WebTestRequest CreateRequest(string url, string id, string method, int expectedStatus, IHttpBody body = null)
         {
-            return new WebTestRequest(url + "tables/crud/" + id)
+            var table = url.Contains("v1") ? "v1crud" : "crud";
+            var request = new WebTestRequest(url + "tables/" + table + "/" + id)
             {
                 Timeout = 5,
                 Method = method,
@@ -36,6 +37,8 @@ namespace azure_mobile_apps_node_perf
                 ExpectedHttpStatusCode = expectedStatus,
                 Body = body
             };
+            request.Headers.Add("x-zumo-application", "EHRkCHqMqEhibaRxeSCyzXcmEUVThd11");
+            return request;
         }
 
         private StringHttpBody Body(string id, string text)
